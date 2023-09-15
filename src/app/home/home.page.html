@@ -20,8 +20,20 @@
   </ion-segment>
 
   <div *ngIf="selectedSegment === 'explab'">
-    <!-- Contenido para la Opción 1 -->
-    <!-- Aquí puedes incluir el componente que deseas mostrar para la opción 'explab' -->
+    <ion-item>
+      <ion-input #inputNombre label="empresa" [(ngModel)]="exp.empresa"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input #inputNombre label="ano_inicio" [(ngModel)]="exp.ano_inicio"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="trabajando" [(ngModel)]="exp.trabajando"></ion-input>
+      <ion-select placeholder="Seleccione una opción" [(ngModel)]="exp.trabajando">
+        <ion-select-option *ngFor="let exp of trabaja" [value]="exp.id">{{exp.tra}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-back-button defaultHref="/"></ion-back-button>
+
   </div>
 
   <div *ngIf="selectedSegment === 'certif'">
@@ -30,7 +42,42 @@
   </div>
 
   <div *ngIf="selectedSegment === 'misdatos'">
-    <!-- Contenido para la Opción 3 -->
-    <!-- Aquí puedes incluir el componente que deseas mostrar para la opción 'misdatos' -->
+    <ion-content [fullscreen]="true">
+      <h1>Bienvenido!</h1>
+      <ion-card>    
+          <ion-item lines="none">
+            <ion-label #labelCabecera> Usuario: {{data.usuario}}</ion-label>
+          </ion-item>
+      </ion-card>
+      <h1>Información Adicional</h1>
+    
+     
+      <ion-card-content>
+        <ion-item>
+          <ion-input #inputNombre label="Nombre" [(ngModel)]="perfil.nombre"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-input #inputApellido label="Apellido" [(ngModel)]="perfil.apellido"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Nivel Educación" [(ngModel)]="perfil.nivel_educacion"></ion-input>
+          <ion-select placeholder="Seleccione nivel" [(ngModel)]="perfil.nivel_educacion">
+            <ion-select-option *ngFor="let niv of niveles" [value]="niv.id">{{niv.nivel}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-card-content>
+      
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-content>
   </div>
+  
+
 </ion-content>
