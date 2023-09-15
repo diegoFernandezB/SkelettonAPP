@@ -16,6 +16,8 @@ export class HomePage {
   @ViewChild('inputempresa',{ read: ElementRef }) inputempresa: ElementRef;
   @ViewChild('inputano_inicio',{ read: ElementRef }) inputano_inicio: ElementRef;
   @ViewChild('inputcargo',{ read: ElementRef }) inputcargo: ElementRef;
+  @ViewChild('inputnomcerti',{ read: ElementRef}) inputnomcerti: ElementRef;
+
   data: any;
 
   niveles:any[]=[
@@ -41,11 +43,22 @@ export class HomePage {
     cargo:"",
   }
 
+  cert={
+    nombre:"",
+    fechaObtencion:"",
+    expiracion:"",
+  }
+
   trabaja:any[]=[
     {id:1,tra:"Sí, actualmente trabajando"},
     {id:2,tra:"No, actualmente sin trabajo"},
   ]
   
+  certificados: any []=[
+    {id:1,certifi:"Sí, posee fecha de expiración"},
+    {id:2,certifi:"no, no posee fecha de expiración"},
+  ]
+
   animacion_labelCabecera: any;
   animacion_inputs: any;
 
@@ -59,6 +72,8 @@ export class HomePage {
     this.inputempresa = ElementRef.prototype as any;
     this.inputano_inicio = ElementRef.prototype as any;
     this.inputcargo = ElementRef.prototype as any;
+    this.inputnomcerti = ElementRef.prototype as any;
+    
 
     
     this.activeroute.queryParams.subscribe(params => {

@@ -18,6 +18,7 @@
       <ion-label>MisDatos</ion-label>
     </ion-segment-button>
   </ion-segment>
+
   <!-- Contenido para la Opción experiencia labroral -->
   <div *ngIf="selectedSegment === 'explab'">
     <ion-item>
@@ -39,13 +40,37 @@
       <ion-input #inputcargo label="cargo" [(ngModel)]="exp.cargo"></ion-input>
     </ion-item>
     <ion-back-button defaultHref="/"></ion-back-button>
-
   </div>
+
   <!-- Contenido para la Opción certificaciones -->
   <div *ngIf="selectedSegment === 'certif'">
-    
+    <ion-item>
+      <ion-input #inputnomcerti label="Nombre Certificado" [(ngModel)]="cert.nombre"></ion-input>
+    </ion-item>
+    <mat-form-field>
+      <mat-label>Fecha Obtención</mat-label>
+      <input matInput [matDatepicker]="picker2">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+    <ion-item>
+      <ion-input label="Certificado posee fecha de expiración" [(ngModel)]="cert.expiracion"></ion-input>
+      <ion-select placeholder="Seleccione una opción" [(ngModel)]="cert.expiracion">
+        <ion-select-option *ngFor="let cert of certificados" [value]="cert.id">{{cert.certifi}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <mat-form-field>
+      <mat-label>Fecha Expiración</mat-label>
+      <input matInput [matDatepicker]="picker3">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
+      <mat-datepicker #picker3></mat-datepicker>
+    </mat-form-field>
+    <ion-back-button defaultHref="/"></ion-back-button>
     <!-- Aquí puedes incluir el componente que deseas mostrar para la opción 'certif' -->
   </div>
+
   <!-- Contenido para la Opción Mis Datos -->
   <div *ngIf="selectedSegment === 'misdatos'">
     <ion-content [fullscreen]="true">
@@ -55,14 +80,12 @@
             <ion-label #labelCabecera> Usuario: {{data.usuario}}</ion-label>
           </ion-item>
       </ion-card>
-      <h1>Información Adicional</h1>
-    
+      <h1>Información Adicional</h1>   
      
       <ion-card-content>
         <ion-item>
           <ion-input #inputNombre label="Nombre" [(ngModel)]="perfil.nombre"></ion-input>
-        </ion-item>
-      
+        </ion-item>      
         <ion-item>
           <ion-input #inputApellido label="Apellido" [(ngModel)]="perfil.apellido"></ion-input>
         </ion-item>
@@ -83,7 +106,6 @@
       </mat-form-field>
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-content>
-  </div>
-  
+  </div>  
 
 </ion-content>
