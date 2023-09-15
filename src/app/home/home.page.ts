@@ -13,6 +13,9 @@ export class HomePage {
   @ViewChild('labelCabecera',{ read: ElementRef }) labelCabecera: ElementRef;
   @ViewChild('inputNombre',{ read: ElementRef }) inputNombre: ElementRef;
   @ViewChild('inputApellido',{ read: ElementRef }) inputApellido: ElementRef;
+  @ViewChild('inputempresa',{ read: ElementRef }) inputempresa: ElementRef;
+  @ViewChild('inputano_inicio',{ read: ElementRef }) inputano_inicio: ElementRef;
+  @ViewChild('inputcargo',{ read: ElementRef }) inputcargo: ElementRef;
   data: any;
 
   niveles:any[]=[
@@ -34,7 +37,8 @@ export class HomePage {
   exp={
     empresa:"",
     ano_inicio:"",
-    trabajando:""
+    trabajando:"",
+    cargo:"",
   }
 
   trabaja:any[]=[
@@ -52,6 +56,10 @@ export class HomePage {
     this.inputApellido = ElementRef.prototype as any;
     this.animacion_labelCabecera = Animation.prototype as any;
     this.animacion_inputs = Animation.prototype as any;
+    this.inputempresa = ElementRef.prototype as any;
+    this.inputano_inicio = ElementRef.prototype as any;
+    this.inputcargo = ElementRef.prototype as any;
+
     
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state) {

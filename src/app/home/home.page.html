@@ -18,29 +18,35 @@
       <ion-label>MisDatos</ion-label>
     </ion-segment-button>
   </ion-segment>
-
+  <!-- Contenido para la Opción experiencia labroral -->
   <div *ngIf="selectedSegment === 'explab'">
     <ion-item>
-      <ion-input #inputNombre label="empresa" [(ngModel)]="exp.empresa"></ion-input>
+      <ion-input #inputempresa label="Empresa" [(ngModel)]="exp.empresa"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input #inputNombre label="ano_inicio" [(ngModel)]="exp.ano_inicio"></ion-input>
+      <ion-input #inputano_inicio label="Año Inicio" [(ngModel)]="exp.ano_inicio"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input label="trabajando" [(ngModel)]="exp.trabajando"></ion-input>
+      <ion-input label="Trabajando Actualmente" [(ngModel)]="exp.trabajando"></ion-input>
       <ion-select placeholder="Seleccione una opción" [(ngModel)]="exp.trabajando">
         <ion-select-option *ngFor="let exp of trabaja" [value]="exp.id">{{exp.tra}}</ion-select-option>
       </ion-select>
     </ion-item>
+    <ion-item>
+      <ion-input label="Año Termino" value="YYYY" [disabled]="true"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input #inputcargo label="cargo" [(ngModel)]="exp.cargo"></ion-input>
+    </ion-item>
     <ion-back-button defaultHref="/"></ion-back-button>
 
   </div>
-
+  <!-- Contenido para la Opción certificaciones -->
   <div *ngIf="selectedSegment === 'certif'">
-    <!-- Contenido para la Opción 2 -->
+    
     <!-- Aquí puedes incluir el componente que deseas mostrar para la opción 'certif' -->
   </div>
-
+  <!-- Contenido para la Opción Mis Datos -->
   <div *ngIf="selectedSegment === 'misdatos'">
     <ion-content [fullscreen]="true">
       <h1>Bienvenido!</h1>
