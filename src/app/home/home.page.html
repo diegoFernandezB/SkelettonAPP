@@ -20,6 +20,16 @@
   </ion-segment>
 
   <!-- Contenido para la Opción experiencia labroral -->
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+        SkelettonAPP
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
   <div *ngIf="selectedSegment === 'explab'">
     <ion-item>
       <ion-input #inputempresa label="Empresa" [(ngModel)]="exp.empresa"></ion-input>
@@ -38,11 +48,11 @@
     </ion-item>
     <ion-item>
       <ion-input #inputcargo label="cargo" [(ngModel)]="exp.cargo"></ion-input>
-    </ion-item>
-    <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-item>    
   </div>
 
   <!-- Contenido para la Opción certificaciones -->
+
   <div *ngIf="selectedSegment === 'certif'">
     <ion-item>
       <ion-input #inputnomcerti label="Nombre Certificado" [(ngModel)]="cert.nombre"></ion-input>
@@ -66,12 +76,12 @@
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
       <mat-datepicker #picker3></mat-datepicker>
-    </mat-form-field>
-    <ion-back-button defaultHref="/"></ion-back-button>
-    <!-- Aquí puedes incluir el componente que deseas mostrar para la opción 'certif' -->
+    </mat-form-field>    
+
   </div>
 
   <!-- Contenido para la Opción Mis Datos -->
+
   <div *ngIf="selectedSegment === 'misdatos'">
     <ion-content [fullscreen]="true">
       <h1>Bienvenido!</h1>
@@ -104,7 +114,7 @@
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-      <ion-back-button defaultHref="/"></ion-back-button>
+      
     </ion-content>
   </div>  
 
