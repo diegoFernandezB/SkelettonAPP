@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      SkelettonAPP
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h1>Bienvenido!</h1>
+  <ion-card>    
+      <ion-item lines="none">
+        <ion-label #labelCabecera> Usuario: {{data.usuario}}</ion-label>
+      </ion-item>
+  </ion-card>
+  <h1>Información Adicional</h1>
+
+ 
+  <ion-card-content>
+    <ion-item>
+      <ion-input #inputNombre label="Nombre" [(ngModel)]="perfil.nombre"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-input #inputApellido label="Apellido" [(ngModel)]="perfil.apellido"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Nivel Educación" [(ngModel)]="perfil.nivel_educacion"></ion-input>
+      <ion-select placeholder="Seleccione nivel" [(ngModel)]="perfil.nivel_educacion">
+        <ion-select-option *ngFor="let niv of niveles" [value]="niv.id">{{niv.nivel}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-card-content>
+  
+  <mat-form-field>
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  
+
+
+
+</ion-content>

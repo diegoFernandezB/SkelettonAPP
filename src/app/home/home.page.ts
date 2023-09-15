@@ -6,7 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  selectedSegment: string = 'explab'; // Valor predeterminado al inicio
 
-  constructor() {}
+  segmentChanged(event: any) {
+    this.selectedSegment = event.detail.value;
+  }
+  
 
+  constructor() { }
 }

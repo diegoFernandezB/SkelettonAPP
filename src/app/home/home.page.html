@@ -1,20 +1,36 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      SkelettonAPP
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="selectedSegment">
+    <ion-segment-button value="explab">
+      <ion-label>Experiencia Laboral</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="certif">
+      <ion-label>Certificaciones</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="misdatos">
+      <ion-label>MisDatos</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div *ngIf="selectedSegment === 'explab'">
+    <!-- Contenido para la Opción 1 -->
+    <!-- Aquí puedes incluir el componente que deseas mostrar para la opción 'explab' -->
+  </div>
+
+  <div *ngIf="selectedSegment === 'certif'">
+    <!-- Contenido para la Opción 2 -->
+    <!-- Aquí puedes incluir el componente que deseas mostrar para la opción 'certif' -->
+  </div>
+
+  <div *ngIf="selectedSegment === 'misdatos'">
+    <!-- Contenido para la Opción 3 -->
+    <!-- Aquí puedes incluir el componente que deseas mostrar para la opción 'misdatos' -->
   </div>
 </ion-content>
